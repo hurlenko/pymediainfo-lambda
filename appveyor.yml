@@ -132,9 +132,6 @@ for:
     
       cp /tmp/lib/libmediainfo.so.0.0.0 ./pymediainfo/libmediainfo.so.0
       cp /tmp/LICENSE docs/LICENSE
-      
-      sudo apt-get update
-      sudo apt-get install patchelf
     fi
   build: off
   test_script: |
@@ -148,7 +145,7 @@ for:
   deploy_script: |
     set -eo pipefail
     if [[ $APPVEYOR_REPO_TAG == "true" && $TOXENV == $DEPLOY_TOXENV ]]; then
-      pip install twine wheel auditwheel
+      pip install twine wheel auditwheel patchelf
       python setup.py bdist_wheel
     
       auditwheel show dist/*.whl
