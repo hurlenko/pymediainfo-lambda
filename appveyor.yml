@@ -124,11 +124,14 @@ for:
       fi
       # "python -m pip" will work with the unpacked PyPy too, "pip" won't
       python -m pip install tox
-
-      curl https://mediaarea.net/download/binary/libmediainfo0/${MEDIAINFO_VERSION}/MediaInfo_DLL_${MEDIAINFO_VERSION}_Lambda_x86_64.zip -o mediainfo.zip
-      unzip mediainfo.zip
-      cp ./lib/libmediainfo.so.0.0.0 ./pymediainfo/libmediainfo.so.0
-      cp LICENSE docs/LICENSE
+      
+      pushd /tmp
+        curl https://mediaarea.net/download/binary/libmediainfo0/${MEDIAINFO_VERSION}/MediaInfo_DLL_${MEDIAINFO_VERSION}_Lambda_x86_64.zip -o mediainfo.zip
+        unzip mediainfo.zip
+      popd
+    
+      cp /tmp/lib/libmediainfo.so.0.0.0 ./pymediainfo/libmediainfo.so.0
+      cp /tmp/LICENSE docs/LICENSE
 
     fi
   build: off
