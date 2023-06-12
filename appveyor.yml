@@ -132,7 +132,8 @@ for:
     
       cp /tmp/lib/libmediainfo.so.0.0.0 ./pymediainfo/libmediainfo.so.0
       cp /tmp/LICENSE docs/LICENSE
-
+      
+      sudo apt-get update
       sudo apt-get install patchelf
     fi
   build: off
