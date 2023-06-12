@@ -8,7 +8,7 @@ environment:
   QA_PYTHON_VERSION: 3.11
   # AppVeyor doesn't offer Python 3.11 on macOS yet
   # https://github.com/appveyor/ci/issues/3858
-  DEPLOY_TOXENV: py310
+  DEPLOY_TOXENV: py39
   PYPY_URL: https://downloads.python.org/pypy/pypy3.9-v7.3.9-linux64.tar.bz2
   # Work around https://github.com/tox-dev/tox/issues/1550
   PYTHONIOENCODING: utf-8
