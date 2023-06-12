@@ -8,7 +8,7 @@ environment:
   QA_PYTHON_VERSION: 3.11
   # AppVeyor doesn't offer Python 3.11 on macOS yet
   # https://github.com/appveyor/ci/issues/3858
-  DEPLOY_TOXENV: py39
+  DEPLOY_TOXENV: py310
   PYPY_URL: https://downloads.python.org/pypy/pypy3.9-v7.3.9-linux64.tar.bz2
   # Work around https://github.com/tox-dev/tox/issues/1550
   PYTHONIOENCODING: utf-8
@@ -17,38 +17,38 @@ environment:
   TWINE_PASSWORD:
     secure: RTM6xuftX/MLawzH0olqDEFY4fPqLEbBAGWykszzE74NqdffAwMr3lsguNKhwErFt8ka2qgr0R1azh9pwcCP98X7x33AUWdladhBG6m71Q1epZ26W/X3nJ0Yrsu8vk1GEp0gZnku3S5O4EHvMXZlz3YSM3MeHOzCbwqfW9Ozbmg670RijNYTPOl45SIjyL+EYLDl/FiM0mOO3blrwp/mpNm8dGJEcjoEeo4WNi2dHyKYmtWh6AhU9PlfNAa7TSx7
   matrix:
-#    - TOXENV: docs,black,flake8,isort,mypy,pylint
-#      APPVEYOR_BUILD_WORKER_IMAGE: *linux_image
+    - TOXENV: docs,black,flake8,isort,mypy,pylint
+      APPVEYOR_BUILD_WORKER_IMAGE: *linux_image
     - TOXENV: py39
       APPVEYOR_BUILD_WORKER_IMAGE: *linux_image
-#    - TOXENV: py310
-#      APPVEYOR_BUILD_WORKER_IMAGE: *linux_image
-#    - TOXENV: py311
-#      APPVEYOR_BUILD_WORKER_IMAGE: *linux_image
+    - TOXENV: py310
+      APPVEYOR_BUILD_WORKER_IMAGE: *linux_image
+    - TOXENV: py311
+      APPVEYOR_BUILD_WORKER_IMAGE: *linux_image
     - TOXENV: py39
       APPVEYOR_BUILD_WORKER_IMAGE: *macos_image
-#    - TOXENV: py310
-#      APPVEYOR_BUILD_WORKER_IMAGE: *macos_image
-#    - TOXENV: py311
-#      APPVEYOR_BUILD_WORKER_IMAGE: *macos_image
-#    - TOXENV: py39
-#      PYTHON: "C:/Python39"
-#      APPVEYOR_BUILD_WORKER_IMAGE: *windows_image
-#    - TOXENV: py39
-#      PYTHON: "C:/Python39-x64"
-#      APPVEYOR_BUILD_WORKER_IMAGE: *windows_image
-#    - TOXENV: py310
-#      PYTHON: "C:/Python310"
-#      APPVEYOR_BUILD_WORKER_IMAGE: *windows_image
-#    - TOXENV: py310
-#      PYTHON: "C:/Python310-x64"
-#      APPVEYOR_BUILD_WORKER_IMAGE: *windows_image
-#    - TOXENV: py311
-#      PYTHON: "C:/Python311"
-#      APPVEYOR_BUILD_WORKER_IMAGE: *windows_image
-#    - TOXENV: py311
-#      PYTHON: "C:/Python311-x64"
-#      APPVEYOR_BUILD_WORKER_IMAGE: *windows_image
+    - TOXENV: py310
+      APPVEYOR_BUILD_WORKER_IMAGE: *macos_image
+    - TOXENV: py311
+      APPVEYOR_BUILD_WORKER_IMAGE: *macos_image
+    - TOXENV: py39
+      PYTHON: "C:/Python39"
+      APPVEYOR_BUILD_WORKER_IMAGE: *windows_image
+    - TOXENV: py39
+      PYTHON: "C:/Python39-x64"
+      APPVEYOR_BUILD_WORKER_IMAGE: *windows_image
+    - TOXENV: py310
+      PYTHON: "C:/Python310"
+      APPVEYOR_BUILD_WORKER_IMAGE: *windows_image
+    - TOXENV: py310
+      PYTHON: "C:/Python310-x64"
+      APPVEYOR_BUILD_WORKER_IMAGE: *windows_image
+    - TOXENV: py311
+      PYTHON: "C:/Python311"
+      APPVEYOR_BUILD_WORKER_IMAGE: *windows_image
+    - TOXENV: py311
+      PYTHON: "C:/Python311-x64"
+      APPVEYOR_BUILD_WORKER_IMAGE: *windows_image
 for:
 -
   matrix:
