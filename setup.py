@@ -37,7 +37,7 @@ distclass = ExtensionDistribution if bin_files else Distribution
 
 
 setup(
-    name='pymediainfo',
+    name='pymediainfo-lambda',
     author='Louis Sautier',
     author_email='sautier.louis@gmail.com',
     url='https://github.com/sbraz/pymediainfo',
