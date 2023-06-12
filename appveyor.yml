@@ -19,38 +19,18 @@ environment:
   matrix:
     - TOXENV: docs,black,flake8,isort,mypy,pylint
       APPVEYOR_BUILD_WORKER_IMAGE: *linux_image
-    - TOXENV: pypy3
-      APPVEYOR_BUILD_WORKER_IMAGE: *linux_image
-    - TOXENV: py37
-      APPVEYOR_BUILD_WORKER_IMAGE: *linux_image
-    - TOXENV: py38
-      APPVEYOR_BUILD_WORKER_IMAGE: *linux_image
     - TOXENV: py39
       APPVEYOR_BUILD_WORKER_IMAGE: *linux_image
     - TOXENV: py310
       APPVEYOR_BUILD_WORKER_IMAGE: *linux_image
     - TOXENV: py311
       APPVEYOR_BUILD_WORKER_IMAGE: *linux_image
-    - TOXENV: py38
-      APPVEYOR_BUILD_WORKER_IMAGE: *macos_image
     - TOXENV: py39
       APPVEYOR_BUILD_WORKER_IMAGE: *macos_image
     - TOXENV: py310
       APPVEYOR_BUILD_WORKER_IMAGE: *macos_image
     - TOXENV: py311
       APPVEYOR_BUILD_WORKER_IMAGE: *macos_image
-    - TOXENV: py37
-      PYTHON: "C:/Python37"
-      APPVEYOR_BUILD_WORKER_IMAGE: *windows_image
-    - TOXENV: py37
-      PYTHON: "C:/Python37-x64"
-      APPVEYOR_BUILD_WORKER_IMAGE: *windows_image
-    - TOXENV: py38
-      PYTHON: "C:/Python38"
-      APPVEYOR_BUILD_WORKER_IMAGE: *windows_image
-    - TOXENV: py38
-      PYTHON: "C:/Python38-x64"
-      APPVEYOR_BUILD_WORKER_IMAGE: *windows_image
     - TOXENV: py39
       PYTHON: "C:/Python39"
       APPVEYOR_BUILD_WORKER_IMAGE: *windows_image
@@ -95,7 +75,7 @@ for:
         If (($env:APPVEYOR_REPO_TAG -eq "true") -and ($env:TOXENV -eq $env:DEPLOY_TOXENV)) {
           pip install twine wheel
           python setup.py bdist_wheel
-          Invoke-Expression "twine upload --skip-existing dist/*.whl"
+          Invoke-Expression "twine upload --repository testpypi --skip-existing dist/*.whl"
         }
 -
   matrix:
@@ -120,7 +100,7 @@ for:
       mv MediaInfoLib/License.html docs
       pip install twine wheel
       python setup.py bdist_wheel
-      twine upload --skip-existing dist/*.whl
+      twine upload --skip-existing --repository testpypi dist/*.whl
     fi
 -
   matrix:
@@ -167,5 +147,5 @@ for:
     if [[ $APPVEYOR_REPO_TAG == "true" && $TOXENV == $DEPLOY_TOXENV ]]; then
       pip install twine
       python setup.py sdist
-      twine upload --skip-existing dist/*.gz
+      twine upload --repository testpypi --skip-existing dist/*.gz
     fi
