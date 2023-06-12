@@ -33,7 +33,7 @@ if os.path.exists(bin_license):
         pass
 
 setup(
-    name='pymediainfo',
+    name='pymediainfo-lambda',
     author='Louis Sautier',
     author_email='sautier.louis@gmail.com',
     url='https://github.com/sbraz/pymediainfo',

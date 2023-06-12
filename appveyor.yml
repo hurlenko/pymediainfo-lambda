@@ -15,7 +15,7 @@ environment:
   TOX_PARALLEL_NO_SPINNER: 1
   TWINE_USERNAME: "__token__"
   TWINE_PASSWORD:
-    secure: Jp2QpmAii1mmAXmotdXmPx5q679oMcRolziuu9m2pawkvOnRJtWMsI4uWiTiSbiw+HMbyyWwVpy+FiaPsHZxtM863PNNJidW1WDam4kn8EM+rznjgZfO9NSCcwZJU5jcTYCwuXo3+FnVNK5rvQ8QJ+Zu6WzH1Ysb+uJSz8e6xt7d7hoZbb9VH5bJC7tYrw+bH+TfA9juVpIYfCavozLLTDLqTcvPfJ+LXMPbiZO+oOztNsLRsviH2QAPXaLspXvCr6qUVH3A84KCdfSXCOZG0g/eYUZ6ilMLESe7DrYZrRc=
+    secure: RTM6xuftX/MLawzH0olqDEFY4fPqLEbBAGWykszzE74NqdffAwMr3lsguNKhwErFt8ka2qgr0R1azh9pwcCP98X7x33AUWdladhBG6m71Q1epZ26W/X3nJ0Yrsu8vk1GEp0gZnku3S5O4EHvMXZlz3YSM3MeHOzCbwqfW9Ozbmg670RijNYTPOl45SIjyL+EYLDl/FiM0mOO3blrwp/mpNm8dGJEcjoEeo4WNi2dHyKYmtWh6AhU9PlfNAa7TSx7
   matrix:
     - TOXENV: docs,black,flake8,isort,mypy,pylint
       APPVEYOR_BUILD_WORKER_IMAGE: *linux_image
