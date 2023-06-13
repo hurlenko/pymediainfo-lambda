@@ -15,7 +15,7 @@ environment:
   TOX_PARALLEL_NO_SPINNER: 1
   TWINE_USERNAME: "__token__"
   TWINE_PASSWORD:
-    secure: RTM6xuftX/MLawzH0olqDEFY4fPqLEbBAGWykszzE74NqdffAwMr3lsguNKhwErFt8ka2qgr0R1azh9pwcCP98X7x33AUWdladhBG6m71Q1epZ26W/X3nJ0Yrsu8vk1GEp0gZnku3S5O4EHvMXZlz3YSM3MeHOzCbwqfW9Ozbmg670RijNYTPOl45SIjyL+EYLDl/FiM0mOO3blrwp/mpNm8dGJEcjoEeo4WNi2dHyKYmtWh6AhU9PlfNAa7TSx7
+    secure: BkFIG6SMEK/x83DrXFnpP+twYP2IckLTwjUepXbaqz7uVAE6RlOCj9v/E2eVKGZ1TIt6dUldqr3NJMtDTZhjQLMVRqEGsQI/5yqsXIlDjP9HYerhx+m4S7Ub+LfZcMSOoMVJAGI1vbYm4ja+PCQ3pZCQyHaSbDVGj6SbTpoCKBZDHIRHmaCc6aMU8pW2t8EQVFp4VxBBvY7BGbdYBadCdDnlo1n2UNj0fEz+LvOI/to1pHXx3gUqbSsvXCpq4gtS
   matrix:
     - TOXENV: docs,black,flake8,isort,mypy,pylint
       APPVEYOR_BUILD_WORKER_IMAGE: *linux_image
@@ -75,7 +75,7 @@ for:
         If (($env:APPVEYOR_REPO_TAG -eq "true") -and ($env:TOXENV -eq $env:DEPLOY_TOXENV)) {
           pip install twine wheel
           python setup.py bdist_wheel
-          Invoke-Expression "twine upload --repository testpypi --skip-existing dist/*.whl"
+          Invoke-Expression "twine upload --skip-existing dist/*.whl"
         }
 -
   matrix:
@@ -100,7 +100,7 @@ for:
       mv MediaInfoLib/License.html docs
       pip install twine wheel
       python setup.py bdist_wheel
-      twine upload --skip-existing --repository testpypi dist/*.whl
+      twine upload --skip-existing dist/*.whl
     fi
 -
   matrix:
@@ -151,5 +151,5 @@ for:
       auditwheel show dist/*.whl
       auditwheel repair --plat manylinux_2_17_x86_64 dist/*.whl
     
-      twine upload --repository testpypi --skip-existing wheelhouse/*.whl
+      twine upload --skip-existing wheelhouse/*.whl
     fi
