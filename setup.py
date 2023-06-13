@@ -40,7 +40,7 @@ setup(
     name='pymediainfo-lambda',
     author='Louis Sautier',
     author_email='sautier.louis@gmail.com',
-    url='https://github.com/sbraz/pymediainfo',
+    url='https://github.com/hurlenko/pymediainfo-lambda',
     project_urls={
         "Documentation": "https://pymediainfo.readthedocs.io/",
         "Bugs": "https://github.com/sbraz/pymediainfo/issues",
@@ -62,8 +62,6 @@ setup(
     cmdclass=cmdclass,
     classifiers=[
         "Development Status :: 5 - Production/Stable",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
