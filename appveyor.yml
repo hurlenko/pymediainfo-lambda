@@ -146,10 +146,11 @@ for:
     set -eo pipefail
     if [[ $APPVEYOR_REPO_TAG == "true" && $TOXENV == $DEPLOY_TOXENV ]]; then
       pip install twine wheel auditwheel patchelf
-      python setup.py bdist_wheel
+      python setup.py sdist bdist_wheel
     
       auditwheel show dist/*.whl
       auditwheel repair --plat manylinux_2_17_x86_64 dist/*.whl
     
       twine upload --skip-existing wheelhouse/*.whl
+      twine upload --skip-existing dist/*.gz
     fi
