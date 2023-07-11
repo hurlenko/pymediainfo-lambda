@@ -19,3 +19,9 @@ pymediainfo
 `pymediainfo <https://github.com/sbraz/pymediainfo>`_ with linux wheels, works with AWS Lambda
 
 Based on `this comment <https://github.com/sbraz/pymediainfo/issues/128#issuecomment-1523599796>`_
+
+Available via pip:
+
+.. code-block:: bash
+
+  pip install pymediainfo-lambda
